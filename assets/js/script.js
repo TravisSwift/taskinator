@@ -1,6 +1,11 @@
+/* feature/task-persistence */
 var taskIdCounter = 0;
 
 var formEl = document.querySelector("#task-form");
+/*
+var buttonEl = document.querySelector("#save-task");
+// console.log("buttonEl");
+*/
 var tasksToDoEl = document.querySelector("#tasks-to-do");
 var tasksInProgressEl = document.querySelector("#tasks-in-progress");
 var tasksCompletedEl = document.querySelector("#tasks-completed");
@@ -20,6 +25,7 @@ var taskFormHandler = function (event) {
     return false;
   }
 
+/* feature/task-persistence */
   // reset form fields for next task to be entered
   document.querySelector("input[name='task-name']").value = "";
   document.querySelector("select[name='task-type']").selectedIndex = 0;
@@ -42,6 +48,9 @@ var taskFormHandler = function (event) {
 };
 
 var createTaskEl = function(taskDataObj) {
+/*
+var createTaskHandler = function() {
+*/
   var listItemEl = document.createElement("li");
   listItemEl.className = "task-item";
   listItemEl.setAttribute("data-task-id", taskIdCounter);
@@ -166,6 +175,7 @@ var taskButtonHandler = function (event) {
   }
 };
 
+ /* feature/task-persistence */
 var taskStatusChangeHandler = function (event) {
   console.log(event.target.value);
 
@@ -281,3 +291,6 @@ pageContentEl.addEventListener("change", taskStatusChangeHandler);
 
 loadTasks();
  
+/*
+buttonEl.addEventListener("click", createTaskHandler);
+*/
